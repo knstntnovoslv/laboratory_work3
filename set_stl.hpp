@@ -98,19 +98,18 @@ set<double> Map_double(set<double>& x, double (*function)(double)){
 
 set<int> Where_int(set<int>& x, bool (*function)(int)){
     set<int> z;
-    set<int>::iterator it = x.begin();
-    for(int i = 0; i < x.size(); i++){
+    set<int>::iterator it;
+    for(it = x.begin(); it != x.end(); it++){
         if(function(*it)){
             z.insert(*it);
         }
-        it++;
     }
     return z;
 }
 set<double> Where_double(set<double>& x, bool (*function)(double)){
     set<double> z;
-    set<double>::iterator it = x.begin();
-    for(int i = 0; i < x.size(); i++){
+    set<double>::iterator it;
+    for( it = x.begin(); it != x.end(); it++){
         if(function(*it)){
             z.insert(*it);
         }
