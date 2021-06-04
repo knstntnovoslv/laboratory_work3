@@ -691,155 +691,7 @@ ForTime test_map_double_set(int n) {
     return q;
 }
 
-ForTime test_where_int_set(int n) {
-    ForTime q;
-    Set<int> c;
-    for (int i = 0; i < n; i++)
-    {
-        c.Insert(i);
-    }
-    auto start_time = chrono::steady_clock::now();
-    c.Where_lkp(isMoreTwo2);
-    auto end_time = chrono::steady_clock::now();
-    q.lkp = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
 
-    Set<int> p;
-    for (int i = 0; i < n; i++)
-    {
-        c.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    p.Where_pkl(isMoreTwo);
-    end_time = chrono::steady_clock::now();
-    q.pkl = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<int> g;
-    for (int i = 0; i < n; i++)
-    {
-        g.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    g.Where_kpl(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.kpl = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<int> m;
-    for (int i = 0; i < n; i++)
-    {
-        m.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    m.Where_klp(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.klp = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<int> o;
-    for (int i = 0; i < n; i++)
-    {
-        o.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    o.Where_plk(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.plk = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<int> w;
-    for (int i = 0; i < n; i++)
-    {
-        w.Insert(i);
-    }
-
-    start_time = chrono::steady_clock::now();
-    w.Where_lpk(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.lpk = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    set<int> e;
-    for(int i = 0; i < n; i++){
-        e.insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    set<int> a = Where_int(e, isMoreTwo_stl);
-    end_time = chrono::steady_clock::now();
-    q.stl = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    return q;
-}
-
-ForTime test_where_double_set(int n) {
-    ForTime q;
-    Set<double> c;
-    for (int i = 0; i < n; i++)
-    {
-        c.Insert(i);
-    }
-    auto start_time = chrono::steady_clock::now();
-    c.Where_lkp(isMoreTwo2);
-    auto end_time = chrono::steady_clock::now();
-    q.lkp = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<double> p;
-    for (int i = 0; i < n; i++)
-    {
-        c.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    p.Where_pkl(isMoreTwo);
-    end_time = chrono::steady_clock::now();
-    q.pkl = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<double> g;
-    for (int i = 0; i < n; i++)
-    {
-        g.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    g.Where_kpl(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.kpl = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<double> m;
-    for (int i = 0; i < n; i++)
-    {
-        m.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    m.Where_klp(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.klp = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<double> o;
-    for (int i = 0; i < n; i++)
-    {
-        o.Insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    o.Where_plk(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.plk = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    Set<double> w;
-    for (int i = 0; i < n; i++)
-    {
-        w.Insert(i);
-    }
-
-    start_time = chrono::steady_clock::now();
-    w.Where_lpk(isMoreTwo2);
-    end_time = chrono::steady_clock::now();
-    q.lpk = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    set<double> e;
-    for(int i = 0; i < n; i++){
-        e.insert(i);
-    }
-    start_time = chrono::steady_clock::now();
-    set<double> a = Where_double(e, isMoreTwo_stl);
-    end_time = chrono::steady_clock::now();
-    q.stl = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
-
-    return q;
-}
 
 
 void time_test_int(int n){
@@ -847,12 +699,10 @@ void time_test_int(int n){
     print_result("Cross Int Test", test_cross_int_set(n));
     print_result("Substraction Int Test", test_substraction_int_set(n));
     print_result("Map Int Test", test_map_int_set(n));
-    print_result("Where Int Test", test_where_int_set(n));
 }
 void time_test_double(int n){
     print_result("Union Double Test",test_union_double_set(n));
     print_result("Cross Double Test", test_cross_double_set(n));
     print_result("Substraction Double Test", test_substraction_double_set(n));
     print_result("Map Double Test", test_map_double_set(n));
-    print_result("Where Double Test", test_where_double_set(n));
 }
